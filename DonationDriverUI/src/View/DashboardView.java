@@ -1,0 +1,289 @@
+package View;
+
+import javax.swing.*;
+import java.awt.*;
+
+public class DashboardView {
+    public JFrame frame;
+    public JButton homeBtn;
+    public JButton monetaryBtn;
+    public JButton goodsBtn;
+    public JButton notifBtn;
+    public JButton donationBtn;
+    public JButton DonateBtn;
+    public JButton riderBtn;
+    public JButton helpBtn;
+    public JButton settingsBtn;
+    public JPanel driveCardsPanel;
+    public JLabel riderIconLabel;
+
+    public DashboardView() {
+        frame = new JFrame("DonationDriver - Dashboard");
+        frame.setSize(1400, 800);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setLocationRelativeTo(null);
+        frame.setLayout(null);
+        frame.getContentPane().setBackground(Color.WHITE);
+        ImageIcon frameIcon = new ImageIcon("Resources/Images/logoicon.png");
+        frame.setIconImage(frameIcon.getImage());
+
+        JPanel header = new JPanel();
+        header.setLayout(null);
+        header.setBackground(new Color(245, 245, 245));
+        header.setBounds(0, 0, 1400, 80);
+
+        ImageIcon logo = new ImageIcon("Resources/Images/logoicon.png");
+        Image logoImg = logo.getImage().getScaledInstance(50, 40, Image.SCALE_SMOOTH);
+        JLabel logoLabel = new JLabel(new ImageIcon(logoImg));
+        logoLabel.setBounds(20, 18, 50, 40);
+        header.add(logoLabel);
+
+        JLabel title = new JLabel("DonationDriver");
+        title.setFont(new Font("Arial", Font.BOLD, 16));
+        title.setBounds(80, 18, 200, 20);
+        header.add(title);
+
+        JLabel subtitle = new JLabel("Accelerated Giving");
+        subtitle.setFont(new Font("Arial", Font.BOLD, 12));
+        subtitle.setForeground(new Color(20, 35, 100));
+        subtitle.setBounds(80, 38, 200, 20);
+        header.add(subtitle);
+
+        frame.add(header);
+
+        /* ================= SIDEBAR ================= */
+        JPanel sidebar = new JPanel();
+        sidebar.setLayout(null);
+        sidebar.setBackground(new Color(245, 245, 245));
+        sidebar.setBounds(0, 80, 200, 720);
+
+        homeBtn = new JButton("Home");
+        homeBtn.setBounds(65, 40, 80, 40);
+        homeBtn.setBackground(Color.lightGray);
+        homeBtn.setBorderPainted(false);
+        homeBtn.setFocusPainted(false);
+        sidebar.add(homeBtn);
+
+        ImageIcon Home = new ImageIcon("Resources/Images/home.png");
+        Image scaledImg = Home.getImage().getScaledInstance(25, 25, Image.SCALE_SMOOTH);
+        JLabel sidebarHome = new JLabel(new ImageIcon(scaledImg));
+        sidebarHome.setBounds(30, 45, 25, 25);
+        sidebar.add(sidebarHome);
+
+        notifBtn = new JButton("Notifications");
+        notifBtn.setBounds(45, 90, 120, 40);
+        notifBtn.setBorderPainted(false);
+        notifBtn.setFocusPainted(false);
+        notifBtn.setContentAreaFilled(false);
+        sidebar.add(notifBtn);
+
+        ImageIcon Notif = new ImageIcon("Resources/Images/notification.png");
+        scaledImg = Notif.getImage().getScaledInstance(25, 25, Image.SCALE_SMOOTH);
+        JLabel sidebarNotif = new JLabel(new ImageIcon(scaledImg));
+        sidebarNotif.setBounds(30, 95, 25, 25);
+        sidebar.add(sidebarNotif);
+
+        donationBtn = new JButton("Donations");
+        donationBtn.setBounds(45, 140, 120, 40);
+        donationBtn.setBorderPainted(false);
+        donationBtn.setFocusPainted(false);
+        donationBtn.setContentAreaFilled(false);
+        sidebar.add(donationBtn);
+
+        ImageIcon donation = new ImageIcon("Resources/Images/charity.png");
+        scaledImg = donation.getImage().getScaledInstance(25, 25, Image.SCALE_SMOOTH);
+        JLabel sidebarDonation = new JLabel(new ImageIcon(scaledImg));
+        sidebarDonation.setBounds(30, 145, 25, 25);
+        sidebar.add(sidebarDonation);
+
+        DonateBtn = new JButton("Donate");
+        DonateBtn.setBounds(45, 190, 120, 40);
+        DonateBtn.setBorderPainted(false);
+        DonateBtn.setFocusPainted(false);
+        DonateBtn.setContentAreaFilled(false);
+        sidebar.add(DonateBtn);
+
+        ImageIcon donate = new ImageIcon("Resources/Images/heart.png");
+        scaledImg = donate.getImage().getScaledInstance(25, 25, Image.SCALE_SMOOTH);
+        JLabel sidebarDonate = new JLabel(new ImageIcon(scaledImg));
+        sidebarDonate.setBounds(30, 195, 25, 25);
+        sidebar.add(sidebarDonate);
+
+        riderBtn = new JButton("Rider Mode");
+        riderBtn.setBounds(45, 240, 120, 40);
+        riderBtn.setBorderPainted(false);
+        riderBtn.setFocusPainted(false);
+        riderBtn.setContentAreaFilled(false);
+        sidebar.add(riderBtn);
+
+        try {
+            ImageIcon riderIcon = new ImageIcon("Resources/Images/rider.png");
+            if (riderIcon.getImage() != null) {
+                scaledImg = riderIcon.getImage().getScaledInstance(25, 25, Image.SCALE_SMOOTH);
+                riderIconLabel = new JLabel(new ImageIcon(scaledImg));
+                riderIconLabel.setBounds(30, 245, 25, 25);
+                sidebar.add(riderIconLabel);
+            }
+        } catch (Exception ignored) {
+        }
+
+        helpBtn = new JButton("Help");
+        helpBtn.setBounds(45, 550, 120, 40);
+        helpBtn.setBorderPainted(false);
+        helpBtn.setFocusPainted(false);
+        helpBtn.setContentAreaFilled(false);
+        sidebar.add(helpBtn);
+
+        settingsBtn = new JButton("Settings");
+        settingsBtn.setBounds(45, 600, 120, 40);
+        settingsBtn.setBorderPainted(false);
+        settingsBtn.setFocusPainted(false);
+        settingsBtn.setContentAreaFilled(false);
+        sidebar.add(settingsBtn);
+
+        ImageIcon help = new ImageIcon("Resources/Images/information.png");
+        scaledImg = help.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
+        JLabel sidebarHelp = new JLabel(new ImageIcon(scaledImg));
+        sidebarHelp.setBounds(27, 555, 30, 30);
+        sidebar.add(sidebarHelp);
+
+        ImageIcon setting = new ImageIcon("Resources/Images/settings.png");
+        scaledImg = setting.getImage().getScaledInstance(25, 25, Image.SCALE_SMOOTH);
+        JLabel sidebarSetting = new JLabel(new ImageIcon(scaledImg));
+        sidebarSetting.setBounds(30, 605, 25, 25);
+        sidebar.add(sidebarSetting);
+
+        frame.add(sidebar);
+
+        /* ================= MAIN CONTENT ================= */
+        JLabel newsLabel = new JLabel("Donation Drives");
+        newsLabel.setFont(new Font("Arial", Font.BOLD, 30));
+        newsLabel.setForeground(new Color(20, 35, 100));
+        newsLabel.setBounds(230, 100, 300, 30);
+        frame.add(newsLabel);
+
+        monetaryBtn = new JButton("Monetary Donations");
+        monetaryBtn.setOpaque(true);
+        monetaryBtn.setBackground(Color.WHITE);
+        monetaryBtn.setBorderPainted(false);
+        monetaryBtn.setVisible(false);
+
+        goodsBtn = new JButton("Goods Donations");
+        goodsBtn.setOpaque(true);
+        goodsBtn.setBackground(Color.WHITE);
+        goodsBtn.setBorderPainted(false);
+        goodsBtn.setVisible(false);
+
+        driveCardsPanel = new JPanel();
+        driveCardsPanel.setLayout(new FlowLayout(FlowLayout.LEFT, 20, 10));
+        driveCardsPanel.setBackground(new Color(245, 245, 245));
+
+        JScrollPane cardsScroll = new JScrollPane(driveCardsPanel,
+                JScrollPane.VERTICAL_SCROLLBAR_NEVER,
+                JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        cardsScroll.setBounds(210, 140, 960, 340);
+        cardsScroll.setBorder(null);
+        cardsScroll.getViewport().setBackground(new Color(245, 245, 245));
+        frame.add(cardsScroll);
+
+        // Donations Side Bar
+        JPanel donationPanel = new JPanel();
+        donationPanel.setLayout(null);
+        donationPanel.setBounds(1180, 50, 200, 800);
+        donationPanel.setBackground(new Color(245, 245, 245));
+
+        JLabel donationTitle = new JLabel("Donation Services");
+        donationTitle.setFont(new Font("Arial", Font.BOLD, 14));
+        donationTitle.setBounds(5, 25, 160, 20);
+        donationPanel.add(donationTitle);
+
+        ImageIcon livePhoto = new ImageIcon("Resources/Images/live photo.png");
+        scaledImg = livePhoto.getImage().getScaledInstance(195, 150, Image.SCALE_SMOOTH);
+        JLabel LivePhoto = new JLabel(new ImageIcon(scaledImg));
+        LivePhoto.setBounds(5, 70, 195, 150);
+        donationPanel.add(LivePhoto);
+
+        ImageIcon liveicon = new ImageIcon("Resources/Images/liveIcon.png");
+        scaledImg = liveicon.getImage().getScaledInstance(25, 25, Image.SCALE_SMOOTH);
+        JLabel liveIcon = new JLabel(new ImageIcon(scaledImg));
+        liveIcon.setBounds(5, 50, 25, 25);
+        donationPanel.add(liveIcon);
+
+        String fullText = "Super Typhoon Haiyan (locally known as Yolanda) swept across the Philippines, " +
+                "generating a storm surge of more than 5 meters in places and winds in excess of 190 mph. " +
+                "Fifteen million people felt the effects of the storm directly. Across the nation, " +
+                "approximately 4.1 million people were displaced from their homes.";
+
+        JTextArea donationText = new JTextArea(fullText);
+        donationText.setBounds(5, 250, 195, 140);
+        donationText.setFont(new Font("Arial", Font.PLAIN, 12));
+        donationText.setForeground(Color.BLACK);
+        donationText.setBackground(new Color(245, 245, 245));
+        donationText.setLineWrap(true);
+        donationText.setWrapStyleWord(true);
+        donationText.setEditable(false);
+        donationPanel.add(donationText);
+
+        JPanel notifCard = new JPanel();
+        notifCard.setLayout(null);
+        notifCard.setBounds(450, 490, 450, 250);
+        notifCard.setBackground(new Color(245, 245, 245));
+        notifCard.setBorder(BorderFactory.createLineBorder(Color.WHITE));
+        frame.add(notifCard);
+
+        JLabel notification = new JLabel("Notifications");
+        notification.setForeground(Color.BLACK);
+        notification.setFont(new Font("Arial", Font.BOLD, 18));
+        notification.setBounds(10, 20, 250, 20);
+        notifCard.add(notification);
+
+        JLabel deliveryLocationNotification = new JLabel("Baguio City - Tacloban");
+        deliveryLocationNotification.setForeground(Color.BLACK);
+        deliveryLocationNotification.setFont(new Font("Arial", Font.PLAIN, 14));
+        deliveryLocationNotification.setBounds(10, 48, 165, 20);
+        notifCard.add(deliveryLocationNotification);
+
+        JButton viewAllNotif = new JButton("View All");
+        viewAllNotif.setBounds(350, 25, 100, 20);
+        viewAllNotif.setForeground(Color.BLACK);
+        viewAllNotif.setContentAreaFilled(false);
+        viewAllNotif.setBorderPainted(false);
+        notifCard.add(viewAllNotif);
+
+        JLabel Transit = new JLabel("Donation Delivered");
+        Transit.setForeground(Color.BLACK);
+        Transit.setFont(new Font("Arial", Font.PLAIN, 14));
+        Transit.setBounds(305, 40, 200, 35);
+        notifCard.add(Transit);
+
+        ImageIcon deliveryicon = new ImageIcon("Resources/Images/deliveryIcon.png");
+        scaledImg = deliveryicon.getImage().getScaledInstance(65, 65, Image.SCALE_SMOOTH);
+        JLabel deliveryIcon = new JLabel(new ImageIcon(scaledImg));
+        deliveryIcon.setBounds(50, 125, 65, 65);
+        notifCard.add(deliveryIcon);
+
+        JLabel boxAmount = new JLabel("Box Amount: 3");
+        boxAmount.setForeground(Color.BLACK);
+        boxAmount.setFont(new Font("Arial", Font.BOLD, 14));
+        boxAmount.setBounds(125, 125, 165, 35);
+        notifCard.add(boxAmount);
+
+        JButton transitStatus = new JButton(
+                "<html>3:09 PM Feb 21, Status: Delivered <br> Your donation has been successfully delivered</html>");
+        transitStatus.setForeground(Color.BLACK);
+        transitStatus.setBackground(Color.LIGHT_GRAY);
+        transitStatus.setBorderPainted(false);
+        transitStatus.setFont(new Font("Arial", Font.PLAIN, 14));
+        transitStatus.setBounds(120, 160, 280, 50);
+        notifCard.add(transitStatus);
+
+        frame.add(donationPanel);
+
+        frame.setVisible(true);
+    }
+
+    public static void main(String[] args) {
+        new DashboardView();
+    }
+
+}
